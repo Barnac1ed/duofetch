@@ -1,4 +1,6 @@
 # duofetch
+<img src="https://img.shields.io/github/stars/Barnac1ed/duofetch?style=plastic" /> <img src="https://img.shields.io/github/repo-size/Barnac1ed/duofetch?style=plastic" />
+
 a little project i'm working on written in **typescript**
 
 use: shows the duolingo statistics of the specified user, very lightweight and fast
