@@ -1,0 +1,3 @@
+entrypoint = "src/index.ts"
+run = "echo open README.md dor instructions."
+language = "nodejs"

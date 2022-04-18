@@ -1,0 +1,48 @@
+// auth
+const usr_agent =
+  "Mozilla/5.0 (Macintosh; PPC Mac OS X 10_7_0 rv:6.0; sl-SI) AppleWebKit/533.4.2 (KHTML, like Gecko) Version/4.1 Safari/533.4.2";
+const opts = {
+  method: "GET",
+  mode: "cors",
+  body: null,
+  headers: {
+    "User-Agent": usr_agent,
+  },
+};
+
+// fetch opts.
+var username = prompt("Username:", "Victor89969");
+var url =
+  "https://cors-anywhere.herokuapp.com/https://www.duolingo.com/2017-06-30/users?username=" +
+  username;
+
+fetch(url, opts)
+  .then((res) => res.json())
+  .then((json) => {
+    var obj = json;
+    var streak = obj.users[0].streak;
+    var nick = obj.users[0].name;
+    var user = obj.users[0].username;
+    var current_lang_id = obj.users[0].currentCourseId;
+    var first_course = obj.users[0].courses[0].title;
+    var lang = obj.users[0].fromLanguage;
+    var premium = obj.users[0].hasPlus;
+    var total_xp = obj.users[0].totalXp;
+    var id = obj.users[0].id;
+
+    const duo_layout = `          
+      /////////  /////////         made_with ♥ ~barn
+     ////*****////******///        -----------------
+//    //*   & .****  &   *//    // 🕶️ name: ${nick}
+////////*  &&& *,,* &&&  *//////// 👤 user: ${user}
+///////********((********///////   ⚡ streak: ${streak}
+  /////////////**/////////////     🏫 current lang: ${current_lang_id}
+      ////////////////////         🐣 first lang: ${first_course}
+       //////////////////          👑 plus: ${premium}
+         //////////////            🏁 lang: ${lang}
+             //////                💎 total xp: ${total_xp}
+        *****     *****            💻 user id: ${id}
+`;
+    console.clear();
+    console.log(duo_layout);
+  });
